@@ -77,6 +77,7 @@ services:
         - 8081:8080
 
     # Request tracking
+
     zipkin:
       image: openjdk:14-jdk-alpine
       networks:
@@ -86,4 +87,50 @@ services:
         - ./zipkin/zipkin-server.jar:/zipkin-server.jar
       ports:
         - 9411:9411
+
+    # microservices business
+
+    # adventures
+
+    adventuresmysql:
+      image: mysql:8.0.19
+      environment:
+        MYSQL_ROOT_PASSWORD: ${ADVENTURES_MYSQL_ROOT_PASSWORD}
+        MYSQL_DATABASE: ${ADVENTURES_MYSQL_DATABASE}
+        MYSQL_USER: ${ADVENTURES_MYSQL_USER}
+        MYSQL_PASSWORD: ${ADVENTURES_MYSQL_PASSWORD}
+      networks:
+        - wildadventures_network
+      volumes:
+        - ./adventures-db/init.sql:/docker-entrypoint-initdb.d/mysql-init.sql
+        - ./adventures-db/adventures.cnf:/etc/mysql/conf.d/custom.cnf
+
+    adventures:
+      build: ../application/ms-business/ms-adventures
+      depends_on:
+        - edgeconfig
+        - edgeregistry
+        - adventuresmysql
+      environment:
+        CONFIG_HOST: edgeconfig
+      networks:
+        - wildadventures_network
+      command:
+        [
+          './wait-for-it.sh',
+          'edgeconfig:80',
+          '--timeout=0',
+          '--',
+          './wait-for-it.sh',
+          'edgeregistry:80',
+          '--timeout=0',
+          '--',
+          './wait-for-it.sh',
+          'adventuresmysql:3306',
+          '--timeout=0',
+          '--',
+          'java',
+          '-jar',
+          'app.jar',
+        ]
 
