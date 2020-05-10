@@ -1,0 +1,67 @@
+[
+    {
+        "id": 1,
+        "name": "Norway Midnight Sun",
+        "startDate": "2020-06-15T06:30:00.000Z",
+        "price": 500,
+        "categoryId": "VILLE",
+        "image": {
+            "label": "Tromso Midnight Sun",
+            "url": "https://www.hurtigruten.fr/globalassets/photos/excursions/norwegian-coast-20181920/5a-the-arctic-capital-tromso/tromso-arctic-capital-view.jpg?width=1900&height=950&center=0.54,0.54&transform=DownResizeCrop",
+            "width": 1900,
+            "height": 950
+        }
+    },
+    {
+        "id": 2,
+        "name": "Norway Midnight Sun",
+        "startDate": "2020-06-15T06:30:00.000Z",
+        "price": 500,
+        "categoryId": "PLAGE",
+        "image": {
+            "label": "Tromso Midnight Sun",
+            "url": "https://www.hurtigruten.fr/globalassets/photos/excursions/norwegian-coast-20181920/5a-the-arctic-capital-tromso/tromso-arctic-capital-view.jpg?width=1900&height=950&center=0.54,0.54&transform=DownResizeCrop",
+            "width": 1900,
+            "height": 950
+        }
+    },
+    {
+        "id": 3,
+        "name": "Norway Midnight Sun",
+        "startDate": "2020-06-15T06:30:00.000Z",
+        "price": 500,
+        "categoryId": "MONTAGNE",
+        "image": {
+            "label": "Tromso Midnight Sun",
+            "url": "https://www.hurtigruten.fr/globalassets/photos/excursions/norwegian-coast-20181920/5a-the-arctic-capital-tromso/tromso-arctic-capital-view.jpg?width=1900&height=950&center=0.54,0.54&transform=DownResizeCrop",
+            "width": 1900,
+            "height": 950
+        }
+    },
+    {
+        "id": 4,
+        "name": "Norway Midnight Sun",
+        "startDate": "2020-06-15T06:30:00.000Z",
+        "price": 500,
+        "categoryId": "VILLE",
+        "image": {
+            "label": "Tromso Midnight Sun",
+            "url": "https://www.hurtigruten.fr/globalassets/photos/excursions/norwegian-coast-20181920/5a-the-arctic-capital-tromso/tromso-arctic-capital-view.jpg?width=1900&height=950&center=0.54,0.54&transform=DownResizeCrop",
+            "width": 1900,
+            "height": 950
+        }
+    },
+    {
+        "id": 5,
+        "name": "Norway Midnight Sun",
+        "startDate": "2020-06-15T06:30:00.000Z",
+        "price": 500,
+        "categoryId": "VILLE",
+        "image": {
+            "label": "Tromso Midnight Sun",
+            "url": "https://www.hurtigruten.fr/globalassets/photos/excursions/norwegian-coast-20181920/5a-the-arctic-capital-tromso/tromso-arctic-capital-view.jpg?width=1900&height=950&center=0.54,0.54&transform=DownResizeCrop",
+            "width": 1900,
+            "height": 950
+        }
+    }
+]

@@ -1,0 +1,17 @@
+.adventure-header-image-container {
+    max-height: 350px;
+    overflow: hidden;
+
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+    width: calc(100% + 32px);
+    margin: -16px -16px 16px -16px !important;
+}
+.reservation-info {
+    float: right;
+    width: 400px;
+    max-height: 200px;
+}
+.description-container {
+    min-height: 125px;
+}

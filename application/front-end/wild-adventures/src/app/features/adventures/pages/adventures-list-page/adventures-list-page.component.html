@@ -1,0 +1,36 @@
+<mat-card ngClass.gt-sm="margin" style="min-height: 200px;">
+    <mat-card-title>Notre catalogue d'aventures</mat-card-title>
+
+    <ng-container *ngIf="categories; else spinner">
+        <div fxLayout="row-reverse">
+            <mat-form-field class="margin-right-strong">
+                <mat-label>Filtrer par catégorie</mat-label>
+                <mat-select (selectionChange)="onChangeCategory($event)">
+                    <mat-option *ngIf="selectedCategory">Tout</mat-option>
+                    <mat-option *ngFor="let category of categories" [value]="category">
+                        {{ category | titlecase }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <mat-card-content fxLayout="row wrap">
+            <adv-adventure-card
+                fxFlex.gt-lg="20%"
+                fxFlex.lg="25%"
+                fxFlex.md="33%"
+                fxFlex.lt-md="50%"
+                fxFlex.lt-sm="100%"
+                ngClass.gt-sm="padding"
+                ngClass.sm="padding"
+                ngClass.lt-sm="padding-vertical"
+                *ngFor="let adventure of adventures | adventureCategory: selectedCategory"
+                [adventure]="adventure"
+            >
+            </adv-adventure-card>
+        </mat-card-content>
+    </ng-container>
+    <ng-template #spinner>
+        <adv-loading [isLoading]="true"></adv-loading>
+    </ng-template>
+</mat-card>

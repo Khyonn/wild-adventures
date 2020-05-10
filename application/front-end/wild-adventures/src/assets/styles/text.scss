@@ -1,0 +1,14 @@
+.text {
+    &-middle {
+        vertical-align: middle;
+    }
+    &-center {
+        text-align: center;
+    }
+    &-justified {
+        text-align: justify;
+    }
+    &-right {
+        text-align: right;
+    }
+}

@@ -1,0 +1,139 @@
+.padding {
+    padding: 1rem;
+    &-light {
+        padding: 0.5rem;
+    }
+    &-strong {
+        padding: 1.5rem;
+    }
+
+    &-horizontal {
+        padding: 0 1rem;
+        &-light {
+            padding: 0 0.5rem;
+        }
+        &-strong {
+            padding: 0 1.5rem;
+        }
+    }
+
+    &-vertical {
+        padding: 1rem 0;
+        &-light {
+            padding: 0.5rem 0;
+        }
+        &-strong {
+            padding: 1.5rem 0;
+        }
+    }
+
+    &-top {
+        padding: 1rem 0 0 0;
+        &-light {
+            padding: 0.5rem 0 0 0;
+        }
+        &-strong {
+            padding: 1.5rem 0 0 0;
+        }
+    }
+
+    &-right {
+        padding: 0 1rem 0 0;
+        &-light {
+            padding: 0 0.5rem 0 0;
+        }
+        &-strong {
+            padding: 0 1.5rem 0 0;
+        }
+    }
+
+    &-bottom {
+        padding: 0 0 1rem 0;
+        &-light {
+            padding: 0 0 0.5rem 0;
+        }
+        &-strong {
+            padding: 0 0 1.5rem 0;
+        }
+    }
+
+    &-left {
+        padding: 0 0 0 1rem;
+        &-light {
+            padding: 0 0 0 0.5rem;
+        }
+        &-strong {
+            padding: 0 0 0 1.5rem;
+        }
+    }
+}
+
+.margin {
+    margin: 1rem;
+    &-light {
+        margin: 0.5rem;
+    }
+    &-strong {
+        margin: 1.5rem;
+    }
+
+    &-horizontal {
+        margin: 0 1rem;
+        &-light {
+            margin: 0 0.5rem;
+        }
+        &-strong {
+            margin: 0 1.5rem;
+        }
+    }
+
+    &-vertical {
+        margin: 1rem 0;
+        &-light {
+            margin: 0.5rem 0;
+        }
+        &-strong {
+            margin: 1.5rem 0;
+        }
+    }
+
+    &-top {
+        margin: 1rem 0 0 0;
+        &-light {
+            margin: 0.5rem 0 0 0;
+        }
+        &-strong {
+            margin: 1.5rem 0 0 0;
+        }
+    }
+
+    &-right {
+        margin: 0 1rem 0 0;
+        &-light {
+            margin: 0 0.5rem 0 0;
+        }
+        &-strong {
+            margin: 0 1.5rem 0 0;
+        }
+    }
+
+    &-bottom {
+        margin: 0 0 1rem 0;
+        &-light {
+            margin: 0 0 0.5rem 0;
+        }
+        &-strong {
+            margin: 0 0 1.5rem 0;
+        }
+    }
+
+    &-left {
+        margin: 0 0 0 1rem;
+        &-light {
+            margin: 0 0 0 0.5rem;
+        }
+        &-strong {
+            margin: 0 0 0 1.5rem;
+        }
+    }
+}

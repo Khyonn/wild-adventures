@@ -1,0 +1,34 @@
+<div fxLayoutAlign="center" ngClass.gt-xs="margin" ngClass.xs="margin-top-light">
+    <mat-card fxFlex.xs="100%" fxFlex.sm="90%" fxFlex="80%" fxFlex.gt-lg="60%">
+        <div class="margin-bottom-strong">
+            <mat-card-title>
+                Historique de vos réservations
+            </mat-card-title>
+        </div>
+
+        <adv-loading [isLoading]="isLoading"></adv-loading>
+
+        <ng-container *ngIf="!isLoading && !recipes?.length; else recipesTplt">
+            Vous n'avez aucune réservations
+        </ng-container>
+
+        <ng-template #recipesTplt>
+            <mat-accordion>
+                <mat-expansion-panel *ngFor="let recipe of recipes">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            {{ recipe.adventureName }} pour {{ recipe.participantNumber }} personne{{
+                                recipe.participantNumber > 1 ? "s" : ""
+                            }}
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            {{ recipe.totalPrice | currency }}
+                            réglée le {{ recipe.paymentDate | date: "d MMMM y à H'h'mm" }}
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    L'aventure a lieu le {{ recipe.adventureDate | date: "d MMMM y à H'h'mm" }}
+                </mat-expansion-panel>
+            </mat-accordion>
+        </ng-template>
+    </mat-card>
+</div>

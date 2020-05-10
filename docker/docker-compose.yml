@@ -231,3 +231,19 @@ services:
           '-jar',
           'app.jar',
         ]
+
+    # front-end
+
+    front-end:
+      build: ../application/front-end/wild-adventures
+      depends_on:
+        - edgegateway
+      environment:
+        KEYCLOAK_HOST: keycloak
+        GATEWAY_HOST: edgegateway
+      networks:
+        - wildadventures_network
+      volumes:
+        - ./front-end/nginx-default.conf:/etc/nginx/conf.d/default.conf
+      ports:
+        - 4200:80

@@ -1,0 +1,49 @@
+<div fxLayoutAlign="center" ngClass.gt-xs="margin" ngClass.xs="margin-top-light">
+    <mat-card fxFlex.xs="100%" fxFlex.sm="90%" fxFlex="80%" fxFlex.gt-lg="60%">
+        <mat-card-title>Votre panier</mat-card-title>
+        <adv-loading [isLoading]="isLoading"></adv-loading>
+        <ng-container *ngIf="!isLoading && !reservations?.length; else cartContent">
+            Vous n'avez aucun article dans votre panier
+        </ng-container>
+        <ng-template #cartContent>
+            <mat-card-content class="margin-top-strong">
+                <mat-accordion>
+                    <mat-expansion-panel *ngFor="let reservation of reservations">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                {{ reservation.adventureName }} pour
+                                {{ reservation.reservationsNb }} personne{{
+                                    reservation.reservationsNb > 1 ? "s" : ""
+                                }}
+                                ({{ reservation.price | currency }})
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                Réservé le {{ reservation.reservationDate | date: "d MMMM y à H'h'mm" }}
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+
+                        <p>
+                            {{ reservation.adventureDescription }}
+                        </p>
+                        <mat-card-actions align="end">
+                            <button
+                                mat-raised-button
+                                color="warn"
+                                (click)="onDeleteReservation(reservation)"
+                            >
+                                Suppression
+                            </button>
+                            <button
+                                mat-raised-button
+                                color="primary"
+                                (click)="onClickPayment(reservation)"
+                            >
+                                Paiement
+                            </button>
+                        </mat-card-actions>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </mat-card-content>
+        </ng-template>
+    </mat-card>
+</div>
