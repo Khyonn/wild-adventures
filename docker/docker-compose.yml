@@ -1,0 +1,15 @@
+version: '3'
+
+networks:
+    wildadventures_network:
+
+services:
+    # microservices edge
+    edgeconfig:
+        build: ../application/ms-edge/ms-config
+        environment:
+            GIT_CONFIG_URI: ${GIT_CONFIG_URI}
+            GIT_CONFIG_BRANCH: ${GIT_CONFIG_BRANCH}
+        networks:
+            - wildadventures_network
+        command: ['java', '-jar', 'app.jar']
