@@ -15,7 +15,7 @@ public class SwaggerConfig {
     public Docket api(){
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.wildadventures.comments"))
+                .apis(RequestHandlerSelectors.basePackage("com.wildadventures.mscomments"))
                 .paths(PathSelectors.any())
                 .build();
     }
