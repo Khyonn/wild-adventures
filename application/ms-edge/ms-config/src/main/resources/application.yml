@@ -1,0 +1,13 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: config
+  cloud:
+    config:
+      server:
+        git:
+          uri: ${GIT_CONFIG_URI}
+          default-label: ${GIT_CONFIG_BRANCH}
+          force-pull: true
