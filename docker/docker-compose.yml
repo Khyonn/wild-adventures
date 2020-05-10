@@ -75,3 +75,15 @@ services:
         - ./keycloak/wild-adventures-realm.json:/tmp/wild-adventures-realm.json
       ports:
         - 8081:8080
+
+    # Request tracking
+    zipkin:
+      image: openjdk:14-jdk-alpine
+      networks:
+        - wildadventures_network
+      command: ['java', '-jar', 'zipkin-server.jar']
+      volumes:
+        - ./zipkin/zipkin-server.jar:/zipkin-server.jar
+      ports:
+        - 9411:9411
+
