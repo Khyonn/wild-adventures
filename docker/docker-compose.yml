@@ -13,3 +13,13 @@ services:
         networks:
             - wildadventures_network
         command: ['java', '-jar', 'app.jar']
+
+    edgeregistry:
+      build: ../application/ms-edge/ms-registry
+      environment:
+        EDGE_CONFIG_HOST: edgeconfig
+      depends_on:
+        - edgeconfig
+      networks:
+        - wildadventures_network
+      command: ['./wait-for-it.sh', 'edgeconfig:80', '--timeout=0', '--', 'java', '-jar', 'app.jar']
