@@ -134,3 +134,51 @@ services:
           'app.jar',
         ]
 
+    # comments
+
+    commentsmysql:
+      image: mysql:8.0.19
+      environment:
+        MYSQL_ROOT_PASSWORD: ${COMMENTS_MYSQL_ROOT_PASSWORD}
+        MYSQL_DATABASE: ${COMMENTS_MYSQL_DATABASE}
+        MYSQL_USER: ${COMMENTS_MYSQL_USER}
+        MYSQL_PASSWORD: ${COMMENTS_MYSQL_PASSWORD}
+      networks:
+        - wildadventures_network
+      volumes:
+        - ./comments-db/init.sql:/docker-entrypoint-initdb.d/mysql-init.sql
+        - ./comments-db/comments.cnf:/etc/mysql/conf.d/custom.cnf
+
+    comments:
+      build: ../application/ms-business/ms-comments
+      depends_on:
+        - edgeconfig
+        - edgeregistry
+        - commentsmysql
+        - keycloak
+      environment:
+        CONFIG_HOST: edgeconfig
+      networks:
+        - wildadventures_network
+      command:
+        [
+          './wait-for-it.sh',
+          'edgeconfig:80',
+          '--timeout=0',
+          '--',
+          './wait-for-it.sh',
+          'edgeregistry:80',
+          '--timeout=0',
+          '--',
+          './wait-for-it.sh',
+          'keycloak:8080',
+          '--timeout=0',
+          '--',
+          './wait-for-it.sh',
+          'commentsmysql:3306',
+          '--timeout=0',
+          '--',
+          'java',
+          '-jar',
+          'app.jar',
+        ]

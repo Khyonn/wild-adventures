@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: comments
+
+  cloud:
+    config:
+      uri: http://${CONFIG_HOST}
