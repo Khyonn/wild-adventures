@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: reservations
+
+  cloud:
+    config:
+      uri: http://${CONFIG_HOST}
