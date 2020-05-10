@@ -1,0 +1,24 @@
+<mat-card>
+    <img
+        class="card-img"
+        mat-card-image
+        [attr.src]="adventure.image.url"
+        [attr.alt]="adventure.image.label"
+    />
+
+    <mat-card-content>
+        <mat-card-title>{{ adventure.name }}</mat-card-title>
+        <mat-card-subtitle>Catégorie : {{ adventure.categoryId | titlecase }}</mat-card-subtitle>
+        <p>
+            {{ adventure.price | currency }}
+            <br />
+            {{ adventure.startDate | date }}
+        </p>
+    </mat-card-content>
+
+    <mat-card-actions>
+        <button mat-raised-button color="accent" [routerLink]="adventure.id">
+            Plus de détails
+        </button>
+    </mat-card-actions>
+</mat-card>

@@ -1,0 +1,49 @@
+<div fxLayoutAlign="center" ngClass.gt-xs="margin" ngClass.xs="margin-top-light">
+    <mat-card fxFlex.xs="100%" fxFlex.sm="90%" fxFlex="80%" fxFlex.gt-lg="60%">
+        <ng-container *ngIf="adventure; else loading">
+            <div class="adventure-header-image-container">
+                <img
+                    class="fill-width"
+                    *ngIf="selectedImage"
+                    [attr.src]="selectedImage.url"
+                    [attr.alt]="selectedImage.label"
+                />
+            </div>
+            <div fxLayout.lt-md="column">
+                <adv-reservation-infos
+                    [adventure]="adventure"
+                    ngClass.gt-sm="reservation-info"
+                ></adv-reservation-infos>
+                <mat-card-title-group fxFlexOrder.lt-md="-1">
+                    <mat-card-title>{{ adventure.name }}</mat-card-title>
+                    <mat-card-subtitle
+                        >Categorie : {{ adventure.categoryId | titlecase }}</mat-card-subtitle
+                    >
+                </mat-card-title-group>
+                <mat-card-content>
+                    <div class="description-container">
+                        <p
+                            class="text-justified"
+                            *ngFor="let descriptionParagraph of adventure.description.split('\n')"
+                        >
+                            {{ descriptionParagraph }}
+                        </p>
+                    </div>
+                    <mat-divider [inset]="true"></mat-divider>
+                    <div fxLayoutAlign="end" class="fill-width">
+                        <adv-comments-layout
+                            fxFlex="90%"
+                            fxFlex.lt-md="100%"
+                            [adventure]="adventure"
+                        ></adv-comments-layout>
+                    </div>
+                </mat-card-content>
+            </div>
+        </ng-container>
+        <ng-template #loading>
+            <div style="height: 350px;">
+                <adv-loading [isLoading]="true"></adv-loading>
+            </div>
+        </ng-template>
+    </mat-card>
+</div>

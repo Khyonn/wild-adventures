@@ -1,0 +1,183 @@
+<mat-sidenav-container class="sidenav-container">
+    <!-- MENU HAMBURGER (ça ne se mange pas) -->
+    <mat-sidenav
+        #drawer
+        class="sidenav"
+        fixedInViewport="false"
+        [ngClass]="{ hidden: !(isHamburgerMode | async) }"
+        [attr.role]="(isHamburgerMode | async) ? 'dialog' : 'navigation'"
+        [mode]="(isHamburgerMode | async) ? 'over' : 'side'"
+        [opened]="!(isHamburgerMode | async)"
+    >
+        <mat-toolbar>Menu</mat-toolbar>
+        <mat-nav-list>
+            <a mat-list-item routerLink="/" (click)="drawer.close()">
+                <mat-icon aria-label="Icone accueil" class="text-middle margin-right-light"
+                    >home</mat-icon
+                >
+                Accueil
+            </a>
+            <ng-container *ngIf="isKeycloakUp">
+                <!-- SI CONNECTE -->
+                <ng-container *ngIf="isLoggedIn; else loginTpltHamburger">
+                    <!-- LIEN PANIER -->
+                    <a mat-list-item routerLink="/cart" (click)="drawer.close()">
+                        <!-- Avec badge reservation -->
+                        <ng-container *ngIf="reservationNb; else noReservationHamburger">
+                            <mat-icon
+                                [matBadge]="reservationNb"
+                                matBadgeColor="accent"
+                                aria-label="Icone panier"
+                                class="text-middle margin-right-light"
+                                >shopping_cart</mat-icon
+                            >
+                        </ng-container>
+                        <!-- Sans badge reservation -->
+                        <ng-template #noReservationHamburger>
+                            <mat-icon
+                                aria-label="Icone panier"
+                                class="text-middle margin-right-light"
+                                >shopping_cart</mat-icon
+                            >
+                        </ng-template>
+                        Panier
+                    </a>
+
+                    <!-- PROFIL -->
+                    <mat-accordion>
+                        <mat-expansion-panel class="no-shadow">
+                            <mat-expansion-panel-header class="expansion-panel-header">
+                                <mat-panel-title>
+                                    <mat-icon
+                                        aria-label="Icone utilisateur"
+                                        class="text-middle margin-right-light"
+                                        >account_circle</mat-icon
+                                    >
+                                    {{ userName | titlecase }}
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <a mat-menu-item (click)="drawer.close() && account()"
+                                ><mat-icon
+                                    aria-label="Icone informations"
+                                    class="text-middle margin-right-light"
+                                    >settings</mat-icon
+                                >Mon compte</a
+                            >
+                            <a
+                                mat-menu-item
+                                routerLink="/user/reservations"
+                                (click)="drawer.close()"
+                                ><mat-icon
+                                    aria-label="Icone historique"
+                                    class="text-middle margin-right-light"
+                                    >history</mat-icon
+                                >Historique</a
+                            >
+                            <a mat-menu-item (click)="drawer.close() && logout()">
+                                <mat-icon
+                                    aria-label="Icone déconnexion"
+                                    class="text-middle margin-right-light"
+                                    >power_settings_new</mat-icon
+                                >
+                                Déconnexion
+                            </a>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </ng-container>
+                <!-- SI NON CONNECTE -->
+                <ng-template #loginTpltHamburger>
+                    <a mat-list-item (click)="login()">
+                        <mat-icon
+                            [attr.aria-hidden]="!(isHamburgerMode | async)"
+                            aria-label="Icone utilisateur"
+                            class="material-icons text-middle margin-right-light"
+                            >account_circle</mat-icon
+                        >Connexion
+                    </a>
+                </ng-template>
+            </ng-container>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <!-- MENU HAUT (barre de navigation) -->
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <button
+                type="button"
+                aria-label="Toggle sidenav"
+                mat-icon-button
+                (click)="drawer.toggle()"
+                *ngIf="isHamburgerMode | async"
+            >
+                <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+            </button>
+            <a routerLink="">Aventures sauvages</a>
+            <span class="spacer"></span>
+            <ng-container *ngIf="!(isHamburgerMode | async)">
+                <!-- TODO: mettre ici les liens qui ne devraient plus être affichés -->
+            </ng-container>
+            <ng-container *ngIf="isKeycloakUp">
+                <ng-container *ngIf="isLoggedIn; else loginTplt">
+                    <!-- PANIER -->
+                    <button mat-button routerLink="/cart">
+                        Panier
+                        <ng-container *ngIf="reservationNb; else noReservation">
+                            <mat-icon
+                                [matBadge]="reservationNb"
+                                matBadgeColor="accent"
+                                aria-label="Icone panier"
+                                class="material-icons"
+                                >shopping_cart</mat-icon
+                            >
+                        </ng-container>
+                        <ng-template #noReservation>
+                            <mat-icon aria-label="Icone panier" class="material-icons"
+                                >shopping_cart</mat-icon
+                            >
+                        </ng-template>
+                    </button>
+
+                    <!-- MENU UTILISATEUR -->
+                    <button mat-button [matMenuTriggerFor]="beforeMenu">
+                        {{ userName | titlecase }}
+                        <mat-icon aria-label="Icone utilisateur" class="material-icons text-middle"
+                            >account_circle</mat-icon
+                        >
+                    </button>
+                    <mat-menu #beforeMenu="matMenu" xPosition="before">
+                        <!-- Informations -->
+                        <button mat-menu-item (click)="account()">
+                            <mat-icon aria-label="Icone informations" class="material-icons"
+                                >settings</mat-icon
+                            >
+                            Mon compte
+                        </button>
+                        <!-- Historique -->
+                        <button mat-menu-item routerLink="user/reservations">
+                            <mat-icon aria-label="Icone historique" class="material-icons"
+                                >history</mat-icon
+                            >Historique
+                        </button>
+                        <!-- Deconnexion -->
+                        <button mat-menu-item (click)="logout()">
+                            <mat-icon aria-label="Icone déconnexion" class="material-icons"
+                                >power_settings_new</mat-icon
+                            >
+                            Déconnexion
+                        </button>
+                    </mat-menu>
+                </ng-container>
+                <ng-template #loginTplt>
+                    <a class="right-side-link" (click)="login()">
+                        Connexion
+                        <mat-icon aria-label="Icone utilisateur" class="material-icons text-middle"
+                            >account_circle</mat-icon
+                        >
+                    </a>
+                </ng-template>
+            </ng-container>
+        </mat-toolbar>
+        <!-- Add Content Here -->
+        <ng-content></ng-content>
+    </mat-sidenav-content>
+</mat-sidenav-container>

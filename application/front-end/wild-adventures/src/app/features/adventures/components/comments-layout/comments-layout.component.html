@@ -1,0 +1,67 @@
+<mat-card class="margin-top">
+    <mat-card-title>Commentaires</mat-card-title>
+    <mat-card-content class="padding-top-strong">
+        <ng-container *ngIf="isLogged">
+            <mat-card class="margin-bottom-strong">
+                <form
+                    novalidate
+                    [formGroup]="commentForm"
+                    (ngSubmit)="commentForm.valid && onSubmitCommentForm()"
+                    #htmlForm="ngForm"
+                >
+                    <mat-card-content>
+                        <mat-form-field style="width: 100%;" appearance="outline">
+                            <mat-label>Ecrire un commentaire</mat-label>
+                            <textarea matInput formControlName="content"></textarea>
+                            <mat-error *ngIf="commentForm.controls['content'].hasError('required')">
+                                Le champs est <strong>requis</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </mat-card-content>
+                    <mat-card-actions align="end">
+                        <button
+                            type="submit"
+                            color="accent"
+                            mat-raised-button
+                            [disabled]="commentForm.invalid"
+                        >
+                            Envoyer
+                        </button>
+                    </mat-card-actions>
+                </form>
+                <adv-loading [isLoading]="isLoadingCommentForm"> </adv-loading>
+            </mat-card>
+            <mat-divider [inset]="true"></mat-divider>
+        </ng-container>
+        <div class="margin">
+            <adv-loading [isLoading]="areCommentsLoading"></adv-loading>
+            <ng-template #noComment>
+                Aucun commentaire, soyez le premier à en écrire un
+            </ng-template>
+            <ng-container *ngIf="comments?.length; else noComment">
+                <div
+                    class="margin-bottom"
+                    *ngFor="
+                        let comment of comments
+                            | commentsSort
+                            | slice: commentsListSliceStart:commentsListSliceEnd
+                    "
+                >
+                    <adv-comment
+                        [comment]="comment"
+                        [userId]="userId"
+                        (clickDeleteComment)="onClickDeleteComment(comment)"
+                    ></adv-comment>
+                </div>
+                    <mat-paginator
+                        color="primary"
+                        [length]="comments.length"
+                        [pageSize]="commentPager.pageSize"
+                        [pageSizeOptions]="[5, 10, 25]"
+                        (page)="onChangeCommentPager($event)"
+                    >
+                    </mat-paginator>
+            </ng-container>
+        </div>
+    </mat-card-content>
+</mat-card>

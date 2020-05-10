@@ -1,0 +1,22 @@
+{
+    "id": 1,
+    "name": "Norway Midnight Sun",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, doloribus? Blanditiis perspiciatis exercitationem molestiae quaerat doloremque. Rem, explicabo assumenda placeat sint, ab reprehenderit amet similique quis vitae facilis omnis voluptates.\nLorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, doloribus? Blanditiis perspiciatis exercitationem molestiae quaerat doloremque. Rem, explicabo assumenda placeat sint, ab reprehenderit amet similique quis vitae facilis omnis voluptates.\nLorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, doloribus? Blanditiis perspiciatis exercitationem molestiae quaerat doloremque. Rem, explicabo assumenda placeat sint, ab reprehenderit amet similique quis vitae facilis omnis voluptates. \nLorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, doloribus? Blanditiis perspiciatis exercitationem molestiae quaerat doloremque. Rem, explicabo assumenda placeat sint, ab reprehenderit amet similique quis vitae facilis omnis voluptates.",
+    "startDate": "2020-06-15T06:30:00.000Z",
+    "price": 500,
+    "categoryId": "VILLE",
+    "images": [
+        {
+            "label": "Tromso Midnight Sun",
+            "url": "https://www.hurtigruten.fr/globalassets/photos/excursions/norwegian-coast-20181920/5a-the-arctic-capital-tromso/tromso-arctic-capital-view.jpg?width=1900&height=950&center=0.54,0.54&transform=DownResizeCrop",
+            "width": 1900,
+            "height": 950
+        },
+        {
+            "label": "Tromso Northern Lights",
+            "url": "https://assets.simpleviewcms.com/simpleview/image/upload/c_limit,h_1200,q_75,w_1200/v1/clients/norway/7a67b342_06d8_448f_8afd_7e15a77699e5_4bc2f922-5376-41a9-b1b6-4ecb8461aeb6.jpg",
+            "width": 1200,
+            "height": 600
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+<form [formGroup]="form" (ngSubmit)="stripeCard.createToken({})">
+    <mat-card-title>Vos coordonnées bancaire</mat-card-title>
+
+    <div class="margin-vertical-strong">
+        <mat-card>
+            <div *ngIf="invalidError" style="color: red;">
+                {{ invalidError.message }}
+            </div>
+
+            <stripe-card
+                #stripeCard
+                [options]="options"
+                (invalidChange)="onStripeError($event)"
+                (catch)="onStripeError($event)"
+                [(invalid)]="invalidError"
+                (tokenChange)="onSubmit($event)"
+                (sourceChange)="setStripeSource($event)"
+            ></stripe-card>
+        </mat-card>
+    </div>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="currentlyPaying">
+        Régler {{ reservation.price | currency }}
+    </button>
+</form>

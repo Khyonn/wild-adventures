@@ -1,0 +1,46 @@
+<div class="padding-strong" style="position: relative;">
+    <adv-loading [isLoading]="isLoading"></adv-loading>
+    <mat-card-subtitle class="text-center">Il reste {{ placeLeftNb }} places</mat-card-subtitle>
+    <mat-progress-bar
+        color="primary"
+        mode="buffer"
+        [value]="participantPercent"
+        [bufferValue]="participantBufferPercent"
+    >
+    </mat-progress-bar>
+    <ng-container
+        *ngIf="isLogged && !reservationInfos?.currentUserReservationInfo?.payed && !isAdventureOver"
+    >
+        <form
+            novalidate
+            [formGroup]="reservationForm"
+            (ngSubmit)="reservationForm.valid && onSubmitReservation()"
+        >
+            <mat-card-content class="margin-top" fxLayoutAlign="space-between center">
+                <mat-form-field appearance="standard">
+                    <mat-label>Nombre de participants</mat-label>
+                    <mat-select formControlName="reservationsNb">
+                        <mat-option
+                            *ngIf="reservationForm.get('reservationsNb').value"
+                            [value]="0"
+                        ></mat-option>
+                        <mat-option
+                            *ngFor="let reservationOption of reservationNbOptions"
+                            [value]="reservationOption"
+                        >
+                            {{ reservationOption }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <button
+                    type="submit"
+                    mat-raised-button
+                    color="primary"
+                    [disabled]="reservationForm.invalid || isLoading"
+                >
+                    {{ reservationInfos?.currentUserReservationInfo ? "Modifier" : "Réserver" }}
+                </button>
+            </mat-card-content>
+        </form>
+    </ng-container>
+</div>

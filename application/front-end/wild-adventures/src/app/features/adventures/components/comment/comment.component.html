@@ -1,0 +1,18 @@
+<mat-card>
+    <mat-card-header>
+        <img
+            mat-card-avatar
+            src="https://lemagduchien.ouest-france.fr/images/dossiers/2017-11/shiba-inu-1-123633.jpg"
+        />
+        <mat-card-title>{{ comment.writer.userName }}</mat-card-title>
+        <mat-card-subtitle>{{ comment.date | date: "d MMMM y à H'h'mm" }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <p *ngFor="let paragraph of comment.content.split('\n')">
+            {{ paragraph }}
+        </p>
+    </mat-card-content>
+    <mat-card-actions *ngIf="isUserComment">
+        <button mat-button (click)="onClickDelete()">Delete</button>
+    </mat-card-actions>
+</mat-card>
