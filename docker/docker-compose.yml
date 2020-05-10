@@ -23,3 +23,55 @@ services:
       networks:
         - wildadventures_network
       command: ['./wait-for-it.sh', 'edgeconfig:80', '--timeout=0', '--', 'java', '-jar', 'app.jar']
+
+    edgegateway:
+      build: ../application/ms-edge/ms-gateway
+      environment:
+        EDGE_CONFIG_HOST: edgeconfig
+      depends_on:
+        - edgeconfig
+        - edgeregistry
+      networks:
+        - wildadventures_network
+      command:
+        [
+          './wait-for-it.sh',
+          'edgeconfig:80',
+          '--timeout=0',
+          '--',
+          './wait-for-it.sh',
+          'edgeregistry:80',
+          '--timeout=0',
+          '--',
+          './wait-for-it.sh',
+          'keycloak:8080',
+          '--timeout=0',
+          '--',
+          'java',
+          '-jar',
+          'app.jar',
+        ]
+      ports:
+        - 8080:80
+
+    # IAM (Identity Access Management)
+
+    keycloak:
+      image: jboss/keycloak:9.0.3
+      environment:
+        KEYCLOAK_USER: ${KEYCLOAK_USER}
+        KEYCLOAK_PASSWORD: ${KEYCLOAK_PASSWORD}
+        KEYCLOAK_IMPORT: /tmp/wild-adventures-realm.json
+      networks:
+        - wildadventures_network
+      command:
+        - '-b 0.0.0.0'
+        - '-Dkeycloak.profile.feature.upload_scripts=enabled'
+        - '-Dkeycloak.migration.action=import'
+        - '-Dkeycloak.migration.provider=singleFile'
+        - '-Dkeycloak.migration.file=/tmp/wild-adventures-realm.json'
+        - '-Dkeycloak.migration.strategy=OVERWRITE_EXISTING'
+      volumes:
+        - ./keycloak/wild-adventures-realm.json:/tmp/wild-adventures-realm.json
+      ports:
+        - 8081:8080
