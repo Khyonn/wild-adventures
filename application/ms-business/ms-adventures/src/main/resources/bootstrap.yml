@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: adventures
+
+  cloud:
+    config:
+      uri: http://${CONFIG_HOST}
