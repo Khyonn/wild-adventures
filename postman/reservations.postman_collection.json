@@ -1,0 +1,334 @@
+{
+	"info": {
+		"_postman_id": "b6b8da3d-cf8b-450a-b689-8b45a0427e32",
+		"name": "reservations",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Récupération infos réservations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/RESERVATIONS/adventures/1/reservations/info",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"RESERVATIONS",
+						"adventures",
+						"1",
+						"reservations",
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Création d'une réservation",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJwb0V4RnE3ajFXXzVhZnlnZ3czUWdKaDhWVmRpMWJySjBVRGp0bXluVkxZIn0.eyJleHAiOjE1ODkxNDM0NTIsImlhdCI6MTU4OTE0MzE1MiwianRpIjoiNzc4MDk0MWEtYjYxOC00YWIzLTg0YzItYmFhY2ZiMTU3NmVkIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgxL2F1dGgvcmVhbG1zL3dpbGQtYWR2ZW50dXJlcyIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiJkMjc2ZjYwOS0xY2JiLTQ3MjktYmRhMS1hNmZiNTZlYTM4OWIiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJ3aWxkLWFkdmVudHVyZXMtYXBwIiwic2Vzc2lvbl9zdGF0ZSI6IjczYzhhMDMwLWIwYWItNDkwNi1hYTMwLTEzYzBmYWY0ZjUxYiIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cDovL2xvY2FsaG9zdDo0MjAwIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwidXNlciJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiTmF0aGFuYcOrbCBNb3JlbCIsInByZWZlcnJlZF91c2VybmFtZSI6ImtoeW9ubiIsImdpdmVuX25hbWUiOiJOYXRoYW5hw6tsIiwiZmFtaWx5X25hbWUiOiJNb3JlbCIsImVtYWlsIjoibmF0aHkubWFuZ2FAZ21haWwuY29tIn0.uN2-eJps5VaKjoPaZXPR4YVgq3jijAQDe8S8JNY0Plnr8AanbAUQ8X71GV8f6QKl0LPlfMsyOVRfvbphL4wnoEhypgr6R7Sgna83upnqgiUh5EYivfC9QpU420ETIn6LWojkxwC-zAGLj6UjWmP0iB63H3FDmPwDZb9u_qy8qAOmu4nZf0ybxnHGAynkE-IICnUP_EEqYaJSyTXKQ69JSCH0uTZng5mQoG3H7P9-e48U78d7BgAXAjQUTZ3zZei0koRcG0i7eo_ycR5tVmJkX8bJ8B545coy6jyzUzLU27Tj6dJa7ro3w8bybEKM3SdRQc9cpL7zInHLswuxolrArA",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "bearer",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"reservationsNb\": 1\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/RESERVATIONS/adventures/1/reservations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"RESERVATIONS",
+						"adventures",
+						"1",
+						"reservations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Création d'une deuxième réservation",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJwb0V4RnE3ajFXXzVhZnlnZ3czUWdKaDhWVmRpMWJySjBVRGp0bXluVkxZIn0.eyJleHAiOjE1ODkxNDM0NTIsImlhdCI6MTU4OTE0MzE1MiwianRpIjoiNzc4MDk0MWEtYjYxOC00YWIzLTg0YzItYmFhY2ZiMTU3NmVkIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgxL2F1dGgvcmVhbG1zL3dpbGQtYWR2ZW50dXJlcyIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiJkMjc2ZjYwOS0xY2JiLTQ3MjktYmRhMS1hNmZiNTZlYTM4OWIiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJ3aWxkLWFkdmVudHVyZXMtYXBwIiwic2Vzc2lvbl9zdGF0ZSI6IjczYzhhMDMwLWIwYWItNDkwNi1hYTMwLTEzYzBmYWY0ZjUxYiIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cDovL2xvY2FsaG9zdDo0MjAwIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwidXNlciJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiTmF0aGFuYcOrbCBNb3JlbCIsInByZWZlcnJlZF91c2VybmFtZSI6ImtoeW9ubiIsImdpdmVuX25hbWUiOiJOYXRoYW5hw6tsIiwiZmFtaWx5X25hbWUiOiJNb3JlbCIsImVtYWlsIjoibmF0aHkubWFuZ2FAZ21haWwuY29tIn0.uN2-eJps5VaKjoPaZXPR4YVgq3jijAQDe8S8JNY0Plnr8AanbAUQ8X71GV8f6QKl0LPlfMsyOVRfvbphL4wnoEhypgr6R7Sgna83upnqgiUh5EYivfC9QpU420ETIn6LWojkxwC-zAGLj6UjWmP0iB63H3FDmPwDZb9u_qy8qAOmu4nZf0ybxnHGAynkE-IICnUP_EEqYaJSyTXKQ69JSCH0uTZng5mQoG3H7P9-e48U78d7BgAXAjQUTZ3zZei0koRcG0i7eo_ycR5tVmJkX8bJ8B545coy6jyzUzLU27Tj6dJa7ro3w8bybEKM3SdRQc9cpL7zInHLswuxolrArA",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "bearer",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"reservationsNb\": 1\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/RESERVATIONS/adventures/2/reservations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"RESERVATIONS",
+						"adventures",
+						"2",
+						"reservations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Récupération infos réservations connecté",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJwb0V4RnE3ajFXXzVhZnlnZ3czUWdKaDhWVmRpMWJySjBVRGp0bXluVkxZIn0.eyJleHAiOjE1ODkxNDI2ODQsImlhdCI6MTU4OTE0MjM4NCwianRpIjoiMjNjNzdlY2MtZWZiNC00MzU4LTkzN2QtYzhiYjI5NzZmNjViIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgxL2F1dGgvcmVhbG1zL3dpbGQtYWR2ZW50dXJlcyIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiJkMjc2ZjYwOS0xY2JiLTQ3MjktYmRhMS1hNmZiNTZlYTM4OWIiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJ3aWxkLWFkdmVudHVyZXMtYXBwIiwic2Vzc2lvbl9zdGF0ZSI6Ijk4ZTVjY2QwLWQ2YzktNDBiYS1hYjMwLTM4NmJhZGNjNTIyMCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cDovL2xvY2FsaG9zdDo0MjAwIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwidXNlciJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiTmF0aGFuYcOrbCBNb3JlbCIsInByZWZlcnJlZF91c2VybmFtZSI6ImtoeW9ubiIsImdpdmVuX25hbWUiOiJOYXRoYW5hw6tsIiwiZmFtaWx5X25hbWUiOiJNb3JlbCIsImVtYWlsIjoibmF0aHkubWFuZ2FAZ21haWwuY29tIn0.na7R7A2S18wH8_iCVZkLJwnV7RasQK1q-SdpA6Vghxf8Z5aELAcroz5LUwTdg40bD_2YnE8PW2E8r_3TVpgeZqXrX2wk76yLtvalbjdJ-wbaQzP2ctsp2HpHyHANSLwIXHb9tMzcDuCYN-NoQyzvWOD3aGztq60pACZvgq3LZSaAgi9a0-Gt-fJik1ImuMszJlSvRYhDFO9A6pN0L5rMPaZTHPyLQW_BnjWdB5iKMvrHlsmWGVEgA-0k-rUfZSZ6GcgQy_nt6ypMWEJDyB9o8JIg7a0VdaOsPsyiwKwA3Lt9oZ1QCn3YO4ghPQ3fPUdBiDyw9NtW2QQhUh9RbX_ESA",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "bearer",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/RESERVATIONS/adventures/1/reservations/info",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"RESERVATIONS",
+						"adventures",
+						"1",
+						"reservations",
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Récupération des réservations de l'utilisateur",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJwb0V4RnE3ajFXXzVhZnlnZ3czUWdKaDhWVmRpMWJySjBVRGp0bXluVkxZIn0.eyJleHAiOjE1ODkxNDI2ODQsImlhdCI6MTU4OTE0MjM4NCwianRpIjoiMjNjNzdlY2MtZWZiNC00MzU4LTkzN2QtYzhiYjI5NzZmNjViIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgxL2F1dGgvcmVhbG1zL3dpbGQtYWR2ZW50dXJlcyIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiJkMjc2ZjYwOS0xY2JiLTQ3MjktYmRhMS1hNmZiNTZlYTM4OWIiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJ3aWxkLWFkdmVudHVyZXMtYXBwIiwic2Vzc2lvbl9zdGF0ZSI6Ijk4ZTVjY2QwLWQ2YzktNDBiYS1hYjMwLTM4NmJhZGNjNTIyMCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cDovL2xvY2FsaG9zdDo0MjAwIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwidXNlciJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiTmF0aGFuYcOrbCBNb3JlbCIsInByZWZlcnJlZF91c2VybmFtZSI6ImtoeW9ubiIsImdpdmVuX25hbWUiOiJOYXRoYW5hw6tsIiwiZmFtaWx5X25hbWUiOiJNb3JlbCIsImVtYWlsIjoibmF0aHkubWFuZ2FAZ21haWwuY29tIn0.na7R7A2S18wH8_iCVZkLJwnV7RasQK1q-SdpA6Vghxf8Z5aELAcroz5LUwTdg40bD_2YnE8PW2E8r_3TVpgeZqXrX2wk76yLtvalbjdJ-wbaQzP2ctsp2HpHyHANSLwIXHb9tMzcDuCYN-NoQyzvWOD3aGztq60pACZvgq3LZSaAgi9a0-Gt-fJik1ImuMszJlSvRYhDFO9A6pN0L5rMPaZTHPyLQW_BnjWdB5iKMvrHlsmWGVEgA-0k-rUfZSZ6GcgQy_nt6ypMWEJDyB9o8JIg7a0VdaOsPsyiwKwA3Lt9oZ1QCn3YO4ghPQ3fPUdBiDyw9NtW2QQhUh9RbX_ESA",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "bearer",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/RESERVATIONS/adventures/1/user-reservations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"RESERVATIONS",
+						"adventures",
+						"1",
+						"user-reservations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Suppression d'une reservation",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/RESERVATIONS/adventures/2/reservations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"RESERVATIONS",
+						"adventures",
+						"2",
+						"reservations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modification  d'une réservation",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJwb0V4RnE3ajFXXzVhZnlnZ3czUWdKaDhWVmRpMWJySjBVRGp0bXluVkxZIn0.eyJleHAiOjE1ODkxNDM3OTksImlhdCI6MTU4OTE0MzQ5OSwianRpIjoiZjU3NDZmY2EtZTFjZC00ZDk4LWI4NDMtN2FjZmQyYTZmMTIyIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgxL2F1dGgvcmVhbG1zL3dpbGQtYWR2ZW50dXJlcyIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiJkMjc2ZjYwOS0xY2JiLTQ3MjktYmRhMS1hNmZiNTZlYTM4OWIiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJ3aWxkLWFkdmVudHVyZXMtYXBwIiwic2Vzc2lvbl9zdGF0ZSI6IjgyMGVhYTVhLTUwZDctNDUzZi1hNTBmLWM3MzExMDlhYTg4NCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cDovL2xvY2FsaG9zdDo0MjAwIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwidXNlciJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiTmF0aGFuYcOrbCBNb3JlbCIsInByZWZlcnJlZF91c2VybmFtZSI6ImtoeW9ubiIsImdpdmVuX25hbWUiOiJOYXRoYW5hw6tsIiwiZmFtaWx5X25hbWUiOiJNb3JlbCIsImVtYWlsIjoibmF0aHkubWFuZ2FAZ21haWwuY29tIn0.v5hN74zBuWl9Gy6839bxu94K2Hm0QSpJHzc5_8SR0MVwnOOgTjYgUTML-F6DmRyKxo44iDE4Qjlq9lWRJjREUDKA1lxxGk0rf601jd_jAzBJ9lPJs5t21W238P_EiccqxRFdAiVspf5d8nR3T8Ge9lDmcheawODxYrnV-GeR57qa0bhQ98YnO7FmHJCnLRl3ZJIpToXgj0u-f2wtAWTKsnQnlrPGiqikSuYpZPNZ2Y9-kw_cQvMJuvmxGyW5mE-nLFPvGpUj1MiJT-qQg91JbWWpPTsdyIqV4IxGxLNnFyl85q2nQ0yrgLtSHGCBtHMmVMZAhWX0FvpPdzg5asC2vw",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "bearer",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"reservationsNb\": 2\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/RESERVATIONS/adventures/1/reservations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"RESERVATIONS",
+						"adventures",
+						"1",
+						"reservations"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			},
+			{
+				"key": "accessToken",
+				"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJwb0V4RnE3ajFXXzVhZnlnZ3czUWdKaDhWVmRpMWJySjBVRGp0bXluVkxZIn0.eyJleHAiOjE1ODkxNDI2ODQsImlhdCI6MTU4OTE0MjM4NCwianRpIjoiMjNjNzdlY2MtZWZiNC00MzU4LTkzN2QtYzhiYjI5NzZmNjViIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgxL2F1dGgvcmVhbG1zL3dpbGQtYWR2ZW50dXJlcyIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiJkMjc2ZjYwOS0xY2JiLTQ3MjktYmRhMS1hNmZiNTZlYTM4OWIiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJ3aWxkLWFkdmVudHVyZXMtYXBwIiwic2Vzc2lvbl9zdGF0ZSI6Ijk4ZTVjY2QwLWQ2YzktNDBiYS1hYjMwLTM4NmJhZGNjNTIyMCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cDovL2xvY2FsaG9zdDo0MjAwIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwidXNlciJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiTmF0aGFuYcOrbCBNb3JlbCIsInByZWZlcnJlZF91c2VybmFtZSI6ImtoeW9ubiIsImdpdmVuX25hbWUiOiJOYXRoYW5hw6tsIiwiZmFtaWx5X25hbWUiOiJNb3JlbCIsImVtYWlsIjoibmF0aHkubWFuZ2FAZ21haWwuY29tIn0.na7R7A2S18wH8_iCVZkLJwnV7RasQK1q-SdpA6Vghxf8Z5aELAcroz5LUwTdg40bD_2YnE8PW2E8r_3TVpgeZqXrX2wk76yLtvalbjdJ-wbaQzP2ctsp2HpHyHANSLwIXHb9tMzcDuCYN-NoQyzvWOD3aGztq60pACZvgq3LZSaAgi9a0-Gt-fJik1ImuMszJlSvRYhDFO9A6pN0L5rMPaZTHPyLQW_BnjWdB5iKMvrHlsmWGVEgA-0k-rUfZSZ6GcgQy_nt6ypMWEJDyB9o8JIg7a0VdaOsPsyiwKwA3Lt9oZ1QCn3YO4ghPQ3fPUdBiDyw9NtW2QQhUh9RbX_ESA",
+				"type": "string"
+			},
+			{
+				"key": "tokenType",
+				"value": "bearer",
+				"type": "string"
+			}
+		]
+	}
+}

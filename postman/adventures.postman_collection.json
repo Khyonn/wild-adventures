@@ -1,0 +1,83 @@
+{
+	"info": {
+		"_postman_id": "37ec07e6-fc9b-4712-89e4-c21bd9dc11c9",
+		"name": "adventures",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Récupération des aventures",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/ADVENTURES/aventures",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ADVENTURES",
+						"aventures"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Récupération d'une aventure",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/ADVENTURES/aventures/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ADVENTURES",
+						"aventures",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Récupération d'une autre aventure",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/ADVENTURES/aventures/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ADVENTURES",
+						"aventures",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

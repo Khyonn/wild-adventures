@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "39a00e10-8ae1-454c-8c97-8b8a073ab7ea",
+		"name": "comments",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Récupérations de commentaires",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/COMMENTS/adventures/1/comments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"COMMENTS",
+						"adventures",
+						"1",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ajout d'un commentaire",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJwb0V4RnE3ajFXXzVhZnlnZ3czUWdKaDhWVmRpMWJySjBVRGp0bXluVkxZIn0.eyJleHAiOjE1ODkxNDI2ODQsImlhdCI6MTU4OTE0MjM4NCwianRpIjoiMjNjNzdlY2MtZWZiNC00MzU4LTkzN2QtYzhiYjI5NzZmNjViIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgxL2F1dGgvcmVhbG1zL3dpbGQtYWR2ZW50dXJlcyIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiJkMjc2ZjYwOS0xY2JiLTQ3MjktYmRhMS1hNmZiNTZlYTM4OWIiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJ3aWxkLWFkdmVudHVyZXMtYXBwIiwic2Vzc2lvbl9zdGF0ZSI6Ijk4ZTVjY2QwLWQ2YzktNDBiYS1hYjMwLTM4NmJhZGNjNTIyMCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cDovL2xvY2FsaG9zdDo0MjAwIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwidXNlciJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiTmF0aGFuYcOrbCBNb3JlbCIsInByZWZlcnJlZF91c2VybmFtZSI6ImtoeW9ubiIsImdpdmVuX25hbWUiOiJOYXRoYW5hw6tsIiwiZmFtaWx5X25hbWUiOiJNb3JlbCIsImVtYWlsIjoibmF0aHkubWFuZ2FAZ21haWwuY29tIn0.na7R7A2S18wH8_iCVZkLJwnV7RasQK1q-SdpA6Vghxf8Z5aELAcroz5LUwTdg40bD_2YnE8PW2E8r_3TVpgeZqXrX2wk76yLtvalbjdJ-wbaQzP2ctsp2HpHyHANSLwIXHb9tMzcDuCYN-NoQyzvWOD3aGztq60pACZvgq3LZSaAgi9a0-Gt-fJik1ImuMszJlSvRYhDFO9A6pN0L5rMPaZTHPyLQW_BnjWdB5iKMvrHlsmWGVEgA-0k-rUfZSZ6GcgQy_nt6ypMWEJDyB9o8JIg7a0VdaOsPsyiwKwA3Lt9oZ1QCn3YO4ghPQ3fPUdBiDyw9NtW2QQhUh9RbX_ESA",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "bearer",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"content\": \"Mon commentaire\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/COMMENTS/adventures/1/comments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"COMMENTS",
+						"adventures",
+						"1",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Suppression d'un commentaire",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/COMMENTS/adventures/1/comments/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"COMMENTS",
+						"adventures",
+						"1",
+						"comments",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "accessToken",
+				"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJwb0V4RnE3ajFXXzVhZnlnZ3czUWdKaDhWVmRpMWJySjBVRGp0bXluVkxZIn0.eyJleHAiOjE1ODkxMjkyOTgsImlhdCI6MTU4OTEyODk5OCwianRpIjoiZWY0NmY1YzctNDFiMC00NTYxLWFjOTYtOTgxMzdiZTZlMDgwIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgxL2F1dGgvcmVhbG1zL3dpbGQtYWR2ZW50dXJlcyIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiJkMjc2ZjYwOS0xY2JiLTQ3MjktYmRhMS1hNmZiNTZlYTM4OWIiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJ3aWxkLWFkdmVudHVyZXMtYXBwIiwic2Vzc2lvbl9zdGF0ZSI6ImM1MzU5ZWI2LTY4ZGEtNDZlYS05OTA4LTA2YmMzZDU1MjU5MSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cDovL2xvY2FsaG9zdDo0MjAwIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwidXNlciJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJuYW1lIjoiTmF0aGFuYcOrbCBNb3JlbCIsInByZWZlcnJlZF91c2VybmFtZSI6ImtoeW9ubiIsImdpdmVuX25hbWUiOiJOYXRoYW5hw6tsIiwiZmFtaWx5X25hbWUiOiJNb3JlbCIsImVtYWlsIjoibmF0aHkubWFuZ2FAZ21haWwuY29tIn0.g6yz2o-RUfqjUzZQeCCROwmpGasARcRwiL2QUL2aFLJ6T2emD_LZd4fP5vdEgemfExyAcubusnWKgVYIeLFZf1yk9SMqh3U8umU2jKnoiZc5M3V4YU0P96oEb--iWHqOLvhYXhEcHG8GCujWjo3nlfTJIx_uXPp3SPdcWFiYOysSynm37DGTXszE8O117NSm_QODmXVg__zQvukrCQ_RrwVFUFMKWJorDUSD9bOyNY2wkBeBWN4n19mLdeFWfirZXTFMK12lZ5oOrE-r7qdd1YqPZ-1cJCjqBAe_k-8exgu7mjxn_WfEtFTOkBap-pJHcFybxuhraVD-9xRhT_Y_Dg",
+				"type": "string"
+			},
+			{
+				"key": "tokenType",
+				"value": "bearer",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "queryParams",
+				"type": "string"
+			}
+		]
+	}
+}
