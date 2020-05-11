@@ -45,11 +45,17 @@ Vous utiliserez Maven pour gérer les dépendances et le packaging au sein de ch
 
 *Lancement*
 1) Placez-vous dans le dossier docker  
-`$ cd docker`
+```
+$ cd docker
+```
 2) Lancez les services  
-`$ docker-compose up -d`  
+```
+$ docker-compose up -d
+```  
 OU vous pouvez aussi lancer plusieurs instances des microservices métiers:  
-`$ docker-compose up -d --scale adventures=2 --scale comments=1 --scale reservations=3`
+```
+$ docker-compose up -d --scale adventures=2 --scale comments=1 --scale reservations=3
+```
 3) Vous pouvez consulter votre navigateur aux adresses suivantes:
   - `localhost:8080` : le point d'entré du back-end
   - `localhost:8081` : serveur keycloak (configuré actuellement avec les credentials suivants username: `admin`, password: `admin`)
@@ -114,10 +120,14 @@ Afin de déployer correctement cette solution, il faut s'assurer des points suiv
 *Pré-requis : nécessite une version du jdk supérieure à 14, maven et une version de node supérieure à v12.16.3*
 
 Les différents micro-services (ms-config, ms-registry, ms-gateway, ms-adventres, ms-comments, ms-reservations) peuvent être compilé via la ligne de commande suivante :  
-`mvn install`
+```
+$ mvn install
+```
 
 Concernant le front, il faudra éditer en amont le fichier `environments/environment.prod.ts` afin d'y renseigner l'url de keycloak, puis lancer la compilation:
-`npm install && npm run build`
+```
+$ npm install && npm run build
+```
 
 ### Autres documentations
 - Microservices edges
