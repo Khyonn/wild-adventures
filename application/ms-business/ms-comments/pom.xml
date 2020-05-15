@@ -132,6 +132,10 @@
 
 
 		<!-- ===== UTILS ===== -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
 		<!-- MAPPER -->
 		<dependency>
 			<groupId>org.mapstruct</groupId>

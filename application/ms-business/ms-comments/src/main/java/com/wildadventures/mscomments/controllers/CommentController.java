@@ -18,6 +18,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -90,7 +91,7 @@ public class CommentController {
      * Attach comment to the given adventure and save it
      *
      * @param adventureId
-     * @param commentContent
+     * @param comment
      * @return
      */
     @PostMapping(value = "/adventures/{adventureId}/comments")
@@ -100,13 +101,11 @@ public class CommentController {
             @ApiResponse(code = 409, message = "Technical error during comment creation", response = ErrorDto.class)
     })
     @PreAuthorize("hasAnyRole('user')")
-    public ResponseEntity<CommentDto> writeAdventureComment(@PathVariable("adventureId") Integer adventureId, @RequestBody Comment commentContent, Authentication authentication) throws TechnicalException {
-        CommentDto comment = new CommentDto();
+    public ResponseEntity<CommentDto> writeAdventureComment(@PathVariable("adventureId") Integer adventureId, @Valid @RequestBody CommentDto comment, Authentication authentication) throws TechnicalException {
         comment.setId(new CommentIdDTO());
 
         comment.getId().setAdventureId(adventureId);
         comment.getId().setUserId(authentication.getName());
-        comment.setContent(commentContent.getContent());
         comment.setDate(LocalDateTime.now());
         return new ResponseEntity<CommentDto>(
                 commentMapper.fromEntityToDto(commentService.writeNewComment(commentMapper.fromDtoToEntity(comment))),
