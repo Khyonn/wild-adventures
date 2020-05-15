@@ -75,7 +75,7 @@ Notre système est composé de la manière suivante :
 - 3 microservices métiers
   - ms-adventures joue le rôle de catalogue et permet d'accéder aux aventures
   - ms-comments permet d'accéder, d'ajouter et de retirer des commentaires sur les aventures
-  - ms-reservations permet de passer 
+  - ms-reservations permet de créer des réservations et passer commande  
 - 1 serveur keycloak qui permet de gérer l'identité et l'accès des utilisateurs
 - 1 front-end  
 On utilise, en outre, un système externe de paiment : Stripe  
