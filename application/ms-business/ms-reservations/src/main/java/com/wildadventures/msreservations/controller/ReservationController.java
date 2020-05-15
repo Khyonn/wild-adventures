@@ -21,6 +21,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -91,7 +92,7 @@ public class ReservationController {
             @ApiResponse(code = 202, message = "Reservation has been updated"),
             @ApiResponse(code = 409, message = "Reservation doesn't exist")
     })
-    public ResponseEntity<ReservationLightDto> updateReservation(@PathVariable int adventureId, Authentication authentication, @RequestBody ReservationLightDto reservationDto) throws BusinessException {
+    public ResponseEntity<ReservationLightDto> updateReservation(@PathVariable int adventureId, Authentication authentication, @Valid @RequestBody ReservationLightDto reservationDto) throws BusinessException {
         reservationDto.setId(new ReservationIdDto());
         reservationDto.getId().setAdventureId(adventureId);
         reservationDto.getId().setUserId(authentication.getName());
@@ -116,7 +117,7 @@ public class ReservationController {
     @ApiResponses({
             @ApiResponse(code = 202, message = "Reservation has been created")
     })
-    public ResponseEntity<ReservationLightDto> createReservation(@PathVariable int adventureId, Authentication authentication, @RequestBody ReservationLightDto reservationDto) throws ReservationAbstractException {
+    public ResponseEntity<ReservationLightDto> createReservation(@PathVariable int adventureId, Authentication authentication, @Valid @RequestBody ReservationLightDto reservationDto) throws ReservationAbstractException {
         Reservation reservation = new Reservation();
         reservation.setId(new ReservationPK());
 
